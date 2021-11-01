@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 
 export default function TextForm(props) {
+
     const [text, setText] = useState("")
     const uppercaseClick = () => {
         // console.log("Uppercase is Click");
@@ -43,20 +44,20 @@ export default function TextForm(props) {
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
                     <textarea className="form-control " id="myBox" value={text} onChange={onChange} style={{
-                        backgroundColor: props.mode === 'light' ? 'white' : '#201f1f',
+                        backgroundColor: props.mode === 'light' ? 'white' : 'rgb(35 58 120)',
                         color: props.mode === 'light' ? 'black' : 'white'
                     }} rows="8"></textarea>
                 </div >
-                <button className="btn btn-primary mx-2" onClick={uppercaseClick}>Convert To UpperCase</button>
-                <button className="btn btn-primary mx-2" onClick={lowercaseClick}>Convert To Lowercase</button>
-                <button className="btn btn-primary mx-2" onClick={clearText}>Clear Text</button>
-                <button className="btn btn-primary mx-2" onClick={toTitleCase}>Capitalize Case</button>
-                <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy</button>
+                <button className="btn btn-primary mx-1 my-1" disabled={text.length === 0} onClick={uppercaseClick}>Convert To UpperCase</button>
+                <button className="btn btn-primary mx-1 my-1" disabled={text.length === 0} onClick={lowercaseClick}>Convert To Lowercase</button>
+                <button className="btn btn-primary mx-1 my-1" disabled={text.length === 0} onClick={clearText}>Clear Text</button>
+                <button className="btn btn-primary mx-1 my-1" disabled={text.length === 0} onClick={toTitleCase}>Capitalize Case</button>
+                <button className="btn btn-primary mx-1 my-1" disabled={text.length === 0} onClick={handleCopy}>Copy</button>
 
             </div>
             <div className="container my-3" style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
                 <h2>Your Text Summery</h2>
-                <p>{text.length == 0 ? 0 : text.split(" ").length} words,{text.replace(" ", "").length} Character</p>
+                <p>{text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words,{text.replace(" ", "").length} Character</p>
                 <p>{0.08 * text.split(" ").length} Minites To Read</p>
                 <h2>Preview</h2>
                 <p>{text.length == 0 ? 'Enter Some Thing To Preview' : text}</p>

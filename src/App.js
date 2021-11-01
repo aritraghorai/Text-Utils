@@ -5,12 +5,12 @@ import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 import React, { useState } from 'react'
 import Alert from './Components/Alert';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 function App() {
@@ -38,22 +38,22 @@ function App() {
   }
   return (
     <>
-      {/* <Router> */}
-      <Navbar title="Text Utils" aboutText="About" mode={mode} toogleMode={toogleMode} />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        {/* <Switch>
+      <Router>
+        <Navbar title="Text Utils" aboutText="About" mode={mode} toogleMode={toogleMode} />
+        <Alert alert={alert} />
+        <div className="container my-3">
+          <Switch>
             use exact to exact match
             <Route exact path="/about">
               <About mode={mode} />
             </Route>
-            <Route exact path="/"> */}
-        <TextForm heading="Enter The Text to analyze" mode={mode} showAlert={showAlert} />
-        {/* </Route>
-          </Switch> */}
+            <Route exact path="/">
+              <TextForm heading="Enter The Text to analyze" mode={mode} showAlert={showAlert} />
+            </Route>
+          </Switch>
 
-      </div>
-      {/* </Router> */}
+        </div>
+      </Router>
     </>
   );
 }
