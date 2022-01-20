@@ -8,8 +8,7 @@ import Alert from './Components/Alert';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 
@@ -26,7 +25,7 @@ function App() {
     }, 1500)
   }
   const toogleMode = () => {
-    if (mode == 'light') {
+    if (mode === 'light') {
       setMode('dark')
       document.body.style.backgroundColor = 'rgb(63 88 110)'
       showAlert("Dark Mode Has Been Enable Successfully", "success")
